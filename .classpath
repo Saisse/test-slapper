@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output=".target/scala-2.9.1/classes" path="src/main/scala"/>
+	<classpathentry kind="src" output=".target/scala-2.9.1/classes" path="src/main/java"/>
+	<classpathentry kind="src" output=".target/scala-2.9.1/classes" path="src/main/resources"/>
+	<classpathentry kind="src" output=".target/scala-2.9.1/test-classes" path="src/test/scala"/>
+	<classpathentry kind="src" output=".target/scala-2.9.1/test-classes" path="src/test/java"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.restlet.jse/org.restlet/jars/org.restlet-2.0.10.jar" sourcepath="/Users/nakanishiyasuo/.ivy2/cache/org.restlet.jse/org.restlet/srcs/org.restlet-2.0.10-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.osgi/org.osgi.core/jars/org.osgi.core-4.0.0.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/junit/junit/jars/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/local/com.novocode/junit-interface_2.9.1/dev/jars/junit-interface_2.9.1.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.scala-tools.testing/test-interface/jars/test-interface-0.5.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-core/jars/spring-core-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-asm/jars/spring-asm-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-context/jars/spring-context-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-aop/jars/spring-aop-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/aopalliance/aopalliance/jars/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-beans/jars/spring-beans-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-expression/jars/spring-expression-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/org.springframework/spring-test/jars/spring-test-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.9.1/jars/scala-io-core_2.9.1-0.3.0.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/com.github.jsuereth.scala-arm/scala-arm_2.9.1/jars/scala-arm_2.9.1-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/nakanishiyasuo/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.9.1/jars/scala-io-file_2.9.1-0.3.0.jar"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=".target/scala-2.9.1/classes"/>
+</classpath>
