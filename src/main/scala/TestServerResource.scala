@@ -25,10 +25,14 @@ class TestApplication(server: TestServerResource) extends RestletApplicaion {
   override def createInboundRoot(): Restlet = {
     val router = new Router(getContext())
     val testRestlet = new TestRestlet(router.getContext())
-    router.attach("http://localhost:8182/end", new TerminateRestlet(router.getContext(), server))
-    router.attach("http://localhost:8182/tests", new TestsRestlet(router.getContext()))
-    router.attach("http://localhost:8182/test/{test}", testRestlet)
-    router.attach("http://localhost:8182/test/{test}/{method}", testRestlet)
+    val testsRestlet = new TestsRestlet(router.getContext())
+    
+    val base = server.baseUrl()
+    router.attachDefault(testsRestlet)
+    router.attach(base + "/end", new TerminateRestlet(router.getContext(), server))
+    router.attach(base + "/tests", testsRestlet)
+    router.attach(base + "/test/{test}", testRestlet)
+    router.attach(base + "/test/{test}/{method}", testRestlet)
     return router
   }
 }
@@ -41,6 +45,7 @@ class TestServerResource extends ServerResource {
   
   def start() = server.start()
   def stop() = server.stop()
+  def baseUrl() = "http://%s:%d".format("localhost", server.getPort())
 }
 
 class TerminateRestlet(context: Context, server: TestServerResource) extends Restlet(context) {
