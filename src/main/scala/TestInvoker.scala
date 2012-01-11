@@ -31,9 +31,3 @@ class NameFilter(name: String) extends Filter {
   }
   def describe(): String = "method name filter."
 }
-
-//object TestInvoker extends App {
-//  val invoker = new TestInvoker()
-//  invoker.run(classOf[Test1])
-//  invoker.run(classOf[Test2])
-//}

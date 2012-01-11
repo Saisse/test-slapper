@@ -3,10 +3,9 @@ package jp.saisse.test.slapper
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.PrintStream
-
+import java.io.InputStream
 import scala.Array.canBuildFrom
 import scala.xml.NodeBuffer
-
 import org.restlet.data.MediaType
 import org.restlet.data.Protocol
 import org.restlet.resource.Get
@@ -19,6 +18,10 @@ import org.restlet.Response
 import org.restlet.Restlet
 import org.restlet.Server
 import scala.concurrent.ops._
+import org.restlet.representation.Representation
+import java.io.PipedInputStream
+import java.io.PipedOutputStream
+import org.restlet.representation.InputRepresentation
 
 class TestApplication(server: TestServerResource) extends RestletApplicaion {
   
@@ -55,23 +58,21 @@ class TerminateRestlet(context: Context, server: TestServerResource) extends Res
   }
 }
 
-
 class TestRestlet(context: Context) extends Restlet(context) {
   override def handle(request: Request, response: Response): Unit = {
     val test = request.getAttributes().get("test").toString()
     var method = Option(request.getAttributes().get("method")).getOrElse("").toString()
-    val byteArrayStream = new ByteArrayOutputStream()
-    val printStream = new PrintStream(byteArrayStream)
-    val invoker = new TestInvoker(printStream)
+    val out = new PipedOutputStream()
+    val invoker = new TestInvoker(new PrintStream(out))
     val c = Class.forName(test)
 
-    method match {
-      case "" => invoker.run(c)
-      case _ => invoker.run(c, method)
+    val in = new PipedInputStream(out, 1)
+    val f = method match {
+      case "" => () => invoker.run(c)
+      case _ => () => invoker.run(c, method)
     }
-    val result = new String(byteArrayStream.toByteArray())
-    
-    response.setEntity(result, MediaType.TEXT_PLAIN)
+    future{f();out.flush();out.close()}
+    response.setEntity(new InputRepresentation(in, MediaType.TEXT_PLAIN))
   }
 }
 
